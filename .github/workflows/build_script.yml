@@ -9,7 +9,7 @@ jobs:
     runs-on: macos-latest
     steps: 
       - name: checkout search.sh repo to this VM
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
       
       - name: install shc via brew
         run: | 
