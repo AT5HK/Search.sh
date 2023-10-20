@@ -7,7 +7,7 @@ source_dir=$2
 output_flag=$3
 output_dir=$4
 
-version="1.0.0"
+version="1.1.0"
 
 function getAbosolutePath { 
     echo $(cd $1; pwd) 
@@ -15,11 +15,12 @@ function getAbosolutePath {
 
 function print_help {
     cat << EOF
-Usage: $0 [-oh] [search_term] [source_dir] -o [output_dir]
+Usage: $0 [-ohv] [search_term] [source_dir] -o [output_dir]
 
 Options:
     -h, --help          Print this help
     -o, --output        Output directory for headers 
+    -v, --version       Current version
 EOF
 }
 
@@ -45,8 +46,12 @@ case "$1" in
         print_help
         exit_script
     ;;
-    *)
+    "--version" | "-v")
         show_version
+        exit_script
+    ;;
+    *)
+        #show_version
     ;;
 esac
 
@@ -54,13 +59,12 @@ esac
 #the if else just doesn't work
 
 if ! [ -n "$search_term" ]; then
-    echo error no search term inputted
     print_help
     exit_script 1
 fi
 
 if ! [ -d "$source_dir" ]; then
-    echo error source directory does not exist
+    echo Error source directory does not exist
     exit_script 1
 fi
 
@@ -70,7 +74,7 @@ if ! [[ $output_flag = "-o" || $output_flag = "-output" ]]; then
 fi
 
 if ! [ -n "$output_dir" ]; then
-    echo error no output directory inputted
+    echo Error no output directory inputted
     exit_script 1
 fi
 
