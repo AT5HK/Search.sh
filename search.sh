@@ -54,7 +54,7 @@ case "$1" in
         #show_version
     ;;
 esac
-
+ 
 #The "" around search_term makes the string empty if no arguments are supplied to the script or else
 #the if else just doesn't work
 
