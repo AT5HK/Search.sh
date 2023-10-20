@@ -1,7 +1,5 @@
 name: build search.sh script
 
-run-name: ${{ github.actor }} is learning GitHub Actions
-
 on: 
   push:
     branches: 
@@ -11,8 +9,9 @@ jobs:
     runs-on: macos-latest
     steps: 
       - uses: actions/checkout@v4
+      - name: building script
       - run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       - run: brew install shc
       - run: shc -f search.sh -o search
-      - shell: bash 
+        shell: bash 
   
