@@ -10,10 +10,12 @@ jobs:
     steps: 
       - name: checkout search.sh repo to this VM
       - uses: actions/checkout@v4
+      
       - name: install shc via brew
         run: | 
           brew --version
           brew install shc
+          
       - name: comiple script
         run: shc -f search.sh -o search
 
