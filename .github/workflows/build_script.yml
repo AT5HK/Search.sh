@@ -5,14 +5,15 @@ on:
     branches: 
       - main
 jobs:
-  build:
+  build-script:
     runs-on: macos-latest
     steps: 
+      - name: checkout search.sh repo to this VM
       - uses: actions/checkout@v4
-      - name: building script
+      - name: install shc via brew
         run: | 
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          brew --version
           brew install shc
-          shc -f search.sh -o search
-        shell: bash 
-  
+      - name: comiple script
+        run: shc -f search.sh -o search
+
