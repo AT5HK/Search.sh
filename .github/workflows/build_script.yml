@@ -10,8 +10,9 @@ jobs:
     steps: 
       - uses: actions/checkout@v4
       - name: building script
-        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        run: brew install shc
-        run: shc -f search.sh -o search
+        run: | 
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          brew install shc
+          shc -f search.sh -o search
         shell: bash 
   
