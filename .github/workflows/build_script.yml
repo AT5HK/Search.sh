@@ -19,3 +19,9 @@ jobs:
       - name: comiple script
         run: shc -f search.sh -o search
 
+      - name: Upload binary artifact
+        uses: actions/upload-artifact@v3.1.3
+        with: 
+          name: search binary
+          path: ./search 
+
