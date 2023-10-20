@@ -17,7 +17,7 @@ jobs:
           brew install shc
           
       - name: comiple script
-        run: shc -f search.sh -o search
+        run: shc -r -f search.sh -o search
 
       - name: Upload binary artifact
         uses: actions/upload-artifact@v3.1.3
